@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RHEIGHT - 알헤잇 | 팔괘 심리테스트 포털</title>
-    <meta name="description" content="팔괘 기반 심리테스트 포털 - MBTI, 별자리, 혈액형, 손금, 포춘쿠키">
+    <meta name="description" content="제오라이머 컨셉 팔괘 기반 심리테스트 포털 - MBTI, 별자리, 혈액형, 타로, 사주, 띠별운세, 에니어그램, 손금">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -12,74 +12,104 @@
     <div class="title">
         <h1>RHEIGHT</h1>
         <p>팔괘 심리테스트 포털</p>
+        <span class="subtitle">천의 제오라이머 컨셉</span>
     </div>
 
     <!-- 메인 컨테이너 -->
     <div class="container">
-        <!-- 팔괘 포털 -->
-        <div class="bagua-portal">
+        <!-- 팔괘 포털 (팔각형) -->
+        <div class="bagua-portal octagon">
             
-            <!-- 태극 중앙 (MBTI) -->
-            <div class="taiji-center">
-                <span>MBTI</span>
+            <!-- 태극 중앙 (MBTI 마스터 시스템) -->
+            <div class="taiji-center" data-test="mbti">
+                <div class="taiji-symbol">
+                    <div class="yin-yang">
+                        <div class="yang">
+                            <div class="yang-dot"></div>
+                        </div>
+                        <div class="yin">
+                            <div class="yin-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <span class="center-label">MBTI</span>
             </div>
             
-            <!-- 8개 팔괘 테스트들 -->
+            <!-- 8개 팔괘 테스트들 (제오라이머 기체별) -->
             
-            <!-- 1. 건괘 ☰ - 별자리 (북쪽) -->
-            <div class="bagua-item" data-test="astrology">
+            <!-- 1. 건괘 ☰ - 별자리 (북쪽) - 천의 제오라이머 -->
+            <div class="bagua-item zeorymer-heaven" data-test="astrology" data-bagua="건괘">
                 <div class="bagua-symbol">☰</div>
-                <div class="bagua-name">별자리 운세</div>
+                <div class="bagua-name">별자리</div>
+                <div class="mecha-name">천의 제오라이머</div>
             </div>
             
-            <!-- 2. 태괘 ☱ - 혈액형 (북동쪽) -->
-            <div class="bagua-item" data-test="blood-type">
+            <!-- 2. 태괘 ☱ - 혈액형 (북동쪽) - 랜그란 -->
+            <div class="bagua-item rangran" data-test="blood-type" data-bagua="태괘">
                 <div class="bagua-symbol">☱</div>
-                <div class="bagua-name">혈액형 성격</div>
+                <div class="bagua-name">혈액형</div>
+                <div class="mecha-name">랜그란</div>
             </div>
             
-            <!-- 3. 이괘 ☲ - 미래 예정 (동쪽) -->
-            <div class="bagua-item" data-test="future">
+            <!-- 3. 이괘 ☲ - 타로 (동쪽) - 가로우드 -->
+            <div class="bagua-item garoud" data-test="tarot" data-bagua="이괘">
                 <div class="bagua-symbol">☲</div>
-                <div class="bagua-name">미래 예측</div>
+                <div class="bagua-name">타로</div>
+                <div class="mecha-name">가로우드</div>
             </div>
             
-            <!-- 4. 진괘 ☳ - 미래 예정 (남동쪽) -->
-            <div class="bagua-item" data-test="thunder">
+            <!-- 4. 진괘 ☳ - 사주 (남동쪽) - 윈드라이거 -->
+            <div class="bagua-item windriger" data-test="saju" data-bagua="진괘">
                 <div class="bagua-symbol">☳</div>
-                <div class="bagua-name">운세 상승</div>
+                <div class="bagua-name">사주</div>
+                <div class="mecha-name">윈드라이거</div>
             </div>
             
-            <!-- 5. 곤괘 ☷ - 손금 (남쪽) -->
-            <div class="bagua-item" data-test="palmistry">
-                <div class="bagua-symbol">☷</div>
-                <div class="bagua-name">손금보기</div>
+            <!-- 5. 손괘 ☴ - 띠별운세 (남쪽) - 라이제우스 -->
+            <div class="bagua-item ryuzeus" data-test="zodiac-animal" data-bagua="손괘">
+                <div class="bagua-symbol">☴</div>
+                <div class="bagua-name">띠별운세</div>
+                <div class="mecha-name">라이제우스</div>
             </div>
             
-            <!-- 6. 간괘 ☶ - 미래 예정 (남서쪽) -->
-            <div class="bagua-item" data-test="mountain">
-                <div class="bagua-symbol">☶</div>
-                <div class="bagua-name">마음의 산</div>
-            </div>
-            
-            <!-- 7. 감괘 ☵ - 포춘쿠키 (서쪽) -->
-            <div class="bagua-item" data-test="fortune-cookie">
+            <!-- 6. 감괘 ☵ - 포춘쿠키 (남서쪽) - 부라우로 -->
+            <div class="bagua-item burauro" data-test="fortune-cookie" data-bagua="감괘">
                 <div class="bagua-symbol">☵</div>
                 <div class="bagua-name">포춘쿠키</div>
+                <div class="mecha-name">부라우로</div>
             </div>
             
-            <!-- 8. 손괘 ☴ - 미래 예정 (북서쪽) -->
-            <div class="bagua-item" data-test="wind">
-                <div class="bagua-symbol">☴</div>
-                <div class="bagua-name">바람의 속삭임</div>
+            <!-- 7. 간괘 ☶ - 에니어그램 (서쪽) - 프로마이즈 -->
+            <div class="bagua-item promise" data-test="enneagram" data-bagua="간괘">
+                <div class="bagua-symbol">☶</div>
+                <div class="bagua-name">에니어그램</div>
+                <div class="mecha-name">프로마이즈</div>
             </div>
             
+            <!-- 8. 곤괘 ☷ - 손금보기 (북서쪽) - 바라이곤 -->
+            <div class="bagua-item baraigon" data-test="palmistry" data-bagua="곤괘">
+                <div class="bagua-symbol">☷</div>
+                <div class="bagua-name">손금보기</div>
+                <div class="mecha-name">바라이곤</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- 제오라이머 정보 패널 -->
+    <div class="info-panel">
+        <h3>팔괘 메카 시스템</h3>
+        <p>각 팔괘는 고유한 속성과 테스트를 담당합니다</p>
+        <div class="mecha-status">
+            <span class="status-indicator active"></span>
+            <span>8기 모두 대기중</span>
         </div>
     </div>
 
     <!-- 하단 정보 -->
     <footer class="footer">
         <p>&copy; 2025 RHEIGHT. 팔괘의 지혜로 마음을 읽다.</p>
+        <p class="zeorymer-credit">Inspired by 天の·ゼオライマー</p>
     </footer>
 
     <script src="assets/js/main.js"></script>
