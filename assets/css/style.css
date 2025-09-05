@@ -37,28 +37,28 @@ body::before {
     padding: 20px;
 }
 
-/* 팔각형 포털 (70% 축소) */
+/* 팔각형 포털 (더 작게 350px) */
 .bagua-portal {
     position: relative;
-    width: 420px;
-    height: 420px;
-    /* 팔각형 클리핑 */
+    width: 350px;
+    height: 350px;
+    /* 팔각형 배경 */
+    background: linear-gradient(45deg, #ffffff 30%, #f8f9fa 70%);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     border: 4px solid #333;
     box-shadow: 
         0 0 30px rgba(0, 0, 0, 0.15),
         inset 0 0 20px rgba(255, 255, 255, 0.8);
-    background: linear-gradient(45deg, #ffffff 30%, #f8f9fa 70%);
 }
 
-/* 태극 중앙 (진짜 태극 모양) */
+/* 태극 중앙 - 진짜 태극 모양 */
 .taiji-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -72,90 +72,82 @@ body::before {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-.taiji-center:hover .taiji-symbol {
-    animation: taiji-rotate 2s linear infinite;
-}
-
-/* 진짜 태극 심볼 */
+/* 태극 심볼 - S자 곡선으로 진짜 태극 */
 .taiji-symbol {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     position: relative;
-    background: linear-gradient(90deg, #ffffff 50%, #000000 50%);
     border: 3px solid #333;
     overflow: hidden;
+    background: #fff;
+}
+
+.taiji-center:hover .taiji-symbol {
+    animation: taiji-spin 1.5s linear infinite;
 }
 
 .yin-yang {
     width: 100%;
     height: 100%;
     position: relative;
+    background: 
+        radial-gradient(circle at 50% 0%, #000 50%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #fff 50%, transparent 50%),
+        linear-gradient(90deg, #000 50%, #fff 50%);
 }
 
-.yang {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: #ffffff;
-    border-radius: 0 0 50px 50px;
-}
-
-.yin {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 50%;
-    background: #000000;
-    border-radius: 50px 50px 0 0;
-}
-
+/* 상호간 작은 원점들 */
 .yang-dot {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    background: #000000;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #000;
     border-radius: 50%;
+    z-index: 3;
 }
 
 .yin-dot {
     position: absolute;
-    top: 50%;
+    bottom: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    background: #ffffff;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #fff;
     border-radius: 50%;
+    z-index: 3;
 }
 
+/* MBTI 라벨 - 회전하지 않도록 별도 위치 */
 .center-label {
-    margin-top: 8px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #dc3545;
     font-weight: bold;
     font-size: 14px;
     text-shadow: 
         0 0 10px rgba(220, 53, 69, 0.8),
         0 0 20px rgba(255, 255, 255, 0.9);
+    pointer-events: none;
 }
 
 /* 태극 회전 애니메이션 */
-@keyframes taiji-rotate {
+@keyframes taiji-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-/* 팔괘 아이템들 */
+/* 팔괘 아이템들 - 진짜 팔각형 배치 */
 .bagua-item {
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
     border: 3px solid #333;
     border-radius: 12px;
@@ -182,22 +174,22 @@ body::before {
 }
 
 .bagua-symbol {
-    font-size: 20px;
-    margin-bottom: 4px;
+    font-size: 18px;
+    margin-bottom: 3px;
     color: #333;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .bagua-name {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     color: #333;
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
 }
 
 .mecha-name {
-    font-size: 8px;
+    font-size: 7px;
     color: #666;
     text-align: center;
     font-style: italic;
@@ -245,50 +237,58 @@ body::before {
     box-shadow: 0 0 25px rgba(25, 135, 84, 0.8);
 }
 
-/* 팔각형 배치 (8방향) */
+/* 진짜 팔각형 배치 - 정확한 각도로 8방향 */
+/* 북쪽 0도 */
 .bagua-item:nth-child(2) { 
-    top: -45px; 
+    top: -40px; 
     left: 50%; 
     transform: translateX(-50%); 
-} /* 북 */
+}
 
+/* 북동쪽 45도 */
 .bagua-item:nth-child(3) { 
-    top: 15px; 
-    right: -45px; 
-} /* 북동 */
+    top: calc(50% - 50% * 0.707 - 40px); 
+    right: calc(50% - 50% * 0.707 - 40px); 
+}
 
+/* 동쪽 90도 */
 .bagua-item:nth-child(4) { 
     top: 50%; 
-    right: -45px; 
+    right: -40px; 
     transform: translateY(-50%); 
-} /* 동 */
+}
 
+/* 남동쪽 135도 */
 .bagua-item:nth-child(5) { 
-    bottom: 15px; 
-    right: -45px; 
-} /* 남동 */
+    bottom: calc(50% - 50% * 0.707 - 40px); 
+    right: calc(50% - 50% * 0.707 - 40px); 
+}
 
+/* 남쪽 180도 */
 .bagua-item:nth-child(6) { 
-    bottom: -45px; 
+    bottom: -40px; 
     left: 50%; 
     transform: translateX(-50%); 
-} /* 남 */
+}
 
+/* 남서쪽 225도 */
 .bagua-item:nth-child(7) { 
-    bottom: 15px; 
-    left: -45px; 
-} /* 남서 */
+    bottom: calc(50% - 50% * 0.707 - 40px); 
+    left: calc(50% - 50% * 0.707 - 40px); 
+}
 
+/* 서쪽 270도 */
 .bagua-item:nth-child(8) { 
     top: 50%; 
-    left: -45px; 
+    left: -40px; 
     transform: translateY(-50%); 
-} /* 서 */
+}
 
+/* 북서쪽 315도 */
 .bagua-item:nth-child(9) { 
-    top: 15px; 
-    left: -45px; 
-} /* 북서 */
+    top: calc(50% - 50% * 0.707 - 40px); 
+    left: calc(50% - 50% * 0.707 - 40px); 
+}
 
 /* 제목 영역 */
 .title {
@@ -301,7 +301,7 @@ body::before {
 }
 
 .title h1 {
-    font-size: 2.8em;
+    font-size: 2.5em;
     color: #333;
     text-shadow: 
         0 0 20px rgba(220, 53, 69, 0.3),
@@ -313,7 +313,7 @@ body::before {
 }
 
 .title p {
-    font-size: 1.1em;
+    font-size: 1em;
     color: #666;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     font-weight: 500;
@@ -321,7 +321,7 @@ body::before {
 }
 
 .subtitle {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #999;
     font-style: italic;
 }
@@ -393,39 +393,39 @@ body::before {
 /* 모바일 반응형 */
 @media (max-width: 768px) {
     .bagua-portal {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
     
     .bagua-item {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
     }
     
     .bagua-symbol {
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .bagua-name {
-        font-size: 9px;
+        font-size: 8px;
     }
     
     .mecha-name {
-        font-size: 7px;
+        font-size: 6px;
     }
     
     .taiji-center {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
     
     .taiji-symbol {
-        width: 75px;
-        height: 75px;
+        width: 60px;
+        height: 60px;
     }
     
     .title h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     
     .info-panel {
@@ -433,14 +433,26 @@ body::before {
     }
     
     /* 모바일용 배치 조정 */
-    .bagua-item:nth-child(2) { top: -35px; }
-    .bagua-item:nth-child(3) { top: 10px; right: -35px; }
-    .bagua-item:nth-child(4) { right: -35px; }
-    .bagua-item:nth-child(5) { bottom: 10px; right: -35px; }
-    .bagua-item:nth-child(6) { bottom: -35px; }
-    .bagua-item:nth-child(7) { bottom: 10px; left: -35px; }
-    .bagua-item:nth-child(8) { left: -35px; }
-    .bagua-item:nth-child(9) { top: 10px; left: -35px; }
+    .bagua-item:nth-child(2) { top: -32px; }
+    .bagua-item:nth-child(3) { 
+        top: calc(50% - 50% * 0.707 - 32px); 
+        right: calc(50% - 50% * 0.707 - 32px); 
+    }
+    .bagua-item:nth-child(4) { right: -32px; }
+    .bagua-item:nth-child(5) { 
+        bottom: calc(50% - 50% * 0.707 - 32px); 
+        right: calc(50% - 50% * 0.707 - 32px); 
+    }
+    .bagua-item:nth-child(6) { bottom: -32px; }
+    .bagua-item:nth-child(7) { 
+        bottom: calc(50% - 50% * 0.707 - 32px); 
+        left: calc(50% - 50% * 0.707 - 32px); 
+    }
+    .bagua-item:nth-child(8) { left: -32px; }
+    .bagua-item:nth-child(9) { 
+        top: calc(50% - 50% * 0.707 - 32px); 
+        left: calc(50% - 50% * 0.707 - 32px); 
+    }
 }
 
 /* 터치 디바이스 최적화 */
