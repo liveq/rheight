@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>RHEIGHT - 알헤잇</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHEIGHT - 알헤잇 | 팔괘 심리테스트 포털</title>
+    <meta name="description" content="팔괘 기반 심리테스트 포털 - MBTI, 별자리, 혈액형, 손금, 포춘쿠키">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>RHEIGHT 메인 페이지</h1>
-    <p>팔괘 포털 준비중...</p>
+    <!-- 제목 영역 -->
+    <div class="title">
+        <h1>RHEIGHT</h1>
+        <p>팔괘 심리테스트 포털</p>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="container">
+        <!-- 팔괘 포털 -->
+        <div class="bagua-portal">
+            
+            <!-- 태극 중앙 (MBTI) -->
+            <div class="taiji-center">
+                <span>MBTI</span>
+            </div>
+            
+            <!-- 8개 팔괘 테스트들 -->
+            
+            <!-- 1. 건괘 ☰ - 별자리 (북쪽) -->
+            <div class="bagua-item" data-test="astrology">
+                <div class="bagua-symbol">☰</div>
+                <div class="bagua-name">별자리 운세</div>
+            </div>
+            
+            <!-- 2. 태괘 ☱ - 혈액형 (북동쪽) -->
+            <div class="bagua-item" data-test="blood-type">
+                <div class="bagua-symbol">☱</div>
+                <div class="bagua-name">혈액형 성격</div>
+            </div>
+            
+            <!-- 3. 이괘 ☲ - 미래 예정 (동쪽) -->
+            <div class="bagua-item" data-test="future">
+                <div class="bagua-symbol">☲</div>
+                <div class="bagua-name">미래 예측</div>
+            </div>
+            
+            <!-- 4. 진괘 ☳ - 미래 예정 (남동쪽) -->
+            <div class="bagua-item" data-test="thunder">
+                <div class="bagua-symbol">☳</div>
+                <div class="bagua-name">운세 상승</div>
+            </div>
+            
+            <!-- 5. 곤괘 ☷ - 손금 (남쪽) -->
+            <div class="bagua-item" data-test="palmistry">
+                <div class="bagua-symbol">☷</div>
+                <div class="bagua-name">손금보기</div>
+            </div>
+            
+            <!-- 6. 간괘 ☶ - 미래 예정 (남서쪽) -->
+            <div class="bagua-item" data-test="mountain">
+                <div class="bagua-symbol">☶</div>
+                <div class="bagua-name">마음의 산</div>
+            </div>
+            
+            <!-- 7. 감괘 ☵ - 포춘쿠키 (서쪽) -->
+            <div class="bagua-item" data-test="fortune-cookie">
+                <div class="bagua-symbol">☵</div>
+                <div class="bagua-name">포춘쿠키</div>
+            </div>
+            
+            <!-- 8. 손괘 ☴ - 미래 예정 (북서쪽) -->
+            <div class="bagua-item" data-test="wind">
+                <div class="bagua-symbol">☴</div>
+                <div class="bagua-name">바람의 속삭임</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- 하단 정보 -->
+    <footer class="footer">
+        <p>&copy; 2025 RHEIGHT. 팔괘의 지혜로 마음을 읽다.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
