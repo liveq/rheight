@@ -1,7 +1,3 @@
-body {
-    background: red !important;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -41,11 +37,11 @@ body::before {
     padding: 20px;
 }
 
-/* 팔각형 포털 (더 작게 350px) */
+/* 팔각형 포털 (70% 크기: 420px) */
 .bagua-portal {
     position: relative;
-    width: 350px;
-    height: 350px;
+    width: 420px;
+    height: 420px;
     /* 팔각형 배경 */
     background: linear-gradient(45deg, #ffffff 30%, #f8f9fa 70%);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -61,8 +57,8 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -76,10 +72,10 @@ body::before {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* 태극 심볼 - S자 곡선으로 진짜 태극 */
+/* 태극 심볼 - SVG 스타일로 진짜 태극 */
 .taiji-symbol {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     position: relative;
     border: 3px solid #333;
@@ -88,48 +84,80 @@ body::before {
 }
 
 .taiji-center:hover .taiji-symbol {
-    animation: taiji-spin 1.5s linear infinite;
+    animation: taiji-spin 2s linear infinite;
 }
 
 .yin-yang {
     width: 100%;
     height: 100%;
     position: relative;
-    background: 
-        radial-gradient(circle at 50% 0%, #000 50%, transparent 50%),
-        radial-gradient(circle at 50% 100%, #fff 50%, transparent 50%),
-        linear-gradient(90deg, #000 50%, #fff 50%);
+    background: #fff;
 }
 
-/* 상호간 작은 원점들 */
-.yang-dot {
+/* 상반부 양(흰색) */
+.yang {
     position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 12px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #fff;
+    border-radius: 0 0 50px 50px / 0 0 100% 100%;
+}
+
+/* 하반부 음(검은색) */
+.yin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #000;
+    border-radius: 50px 50px 0 0 / 100% 100% 0 0;
+}
+
+/* 양 쪽의 작은 원들 */
+.yang::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
     background: #000;
     border-radius: 50%;
-    z-index: 3;
 }
 
-.yin-dot {
+.yin::after {
+    content: '';
     position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 12px;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
     background: #fff;
     border-radius: 50%;
-    z-index: 3;
+}
+
+/* 중앙의 S자 곡선 효과 */
+.yin-yang::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, #000 25%, transparent 25%),
+        radial-gradient(circle at 75% 75%, #fff 25%, transparent 25%);
 }
 
 /* MBTI 라벨 - 회전하지 않도록 별도 위치 */
 .center-label {
     position: absolute;
-    bottom: -25px;
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
     color: #dc3545;
@@ -150,8 +178,8 @@ body::before {
 /* 팔괘 아이템들 - 진짜 팔각형 배치 */
 .bagua-item {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
     border: 3px solid #333;
     border-radius: 12px;
@@ -178,22 +206,22 @@ body::before {
 }
 
 .bagua-symbol {
-    font-size: 18px;
-    margin-bottom: 3px;
+    font-size: 20px;
+    margin-bottom: 4px;
     color: #333;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .bagua-name {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
     color: #333;
     text-align: center;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
 }
 
 .mecha-name {
-    font-size: 7px;
+    font-size: 8px;
     color: #666;
     text-align: center;
     font-style: italic;
@@ -244,60 +272,60 @@ body::before {
 /* 진짜 팔각형 배치 - 정확한 각도로 8방향 */
 /* 북쪽 0도 */
 .bagua-item:nth-child(2) { 
-    top: -40px; 
+    top: -50px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
 
 /* 북동쪽 45도 */
 .bagua-item:nth-child(3) { 
-    top: calc(50% - 50% * 0.707 - 40px); 
-    right: calc(50% - 50% * 0.707 - 40px); 
+    top: calc(50% - 50% * 0.707 - 50px); 
+    right: calc(50% - 50% * 0.707 - 50px); 
 }
 
 /* 동쪽 90도 */
 .bagua-item:nth-child(4) { 
     top: 50%; 
-    right: -40px; 
+    right: -50px; 
     transform: translateY(-50%); 
 }
 
 /* 남동쪽 135도 */
 .bagua-item:nth-child(5) { 
-    bottom: calc(50% - 50% * 0.707 - 40px); 
-    right: calc(50% - 50% * 0.707 - 40px); 
+    bottom: calc(50% - 50% * 0.707 - 50px); 
+    right: calc(50% - 50% * 0.707 - 50px); 
 }
 
 /* 남쪽 180도 */
 .bagua-item:nth-child(6) { 
-    bottom: -40px; 
+    bottom: -50px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
 
 /* 남서쪽 225도 */
 .bagua-item:nth-child(7) { 
-    bottom: calc(50% - 50% * 0.707 - 40px); 
-    left: calc(50% - 50% * 0.707 - 40px); 
+    bottom: calc(50% - 50% * 0.707 - 50px); 
+    left: calc(50% - 50% * 0.707 - 50px); 
 }
 
 /* 서쪽 270도 */
 .bagua-item:nth-child(8) { 
     top: 50%; 
-    left: -40px; 
+    left: -50px; 
     transform: translateY(-50%); 
 }
 
 /* 북서쪽 315도 */
 .bagua-item:nth-child(9) { 
-    top: calc(50% - 50% * 0.707 - 40px); 
-    left: calc(50% - 50% * 0.707 - 40px); 
+    top: calc(50% - 50% * 0.707 - 50px); 
+    left: calc(50% - 50% * 0.707 - 50px); 
 }
 
 /* 제목 영역 */
 .title {
     position: absolute;
-    top: 30px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -305,27 +333,27 @@ body::before {
 }
 
 .title h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #333;
     text-shadow: 
         0 0 20px rgba(220, 53, 69, 0.3),
         0 0 30px rgba(255, 193, 7, 0.2),
         0 0 40px rgba(13, 110, 253, 0.1);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
     letter-spacing: 3px;
 }
 
 .title p {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #666;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     font-weight: 500;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .subtitle {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: #999;
     font-style: italic;
 }
@@ -383,12 +411,12 @@ body::before {
     transform: translateX(-50%);
     text-align: center;
     color: #666;
-    font-size: 0.8em;
+    font-size: 0.9em;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .zeorymer-credit {
-    font-size: 0.7em;
+    font-size: 0.8em;
     color: #999;
     margin-top: 3px;
     font-style: italic;
@@ -397,39 +425,39 @@ body::before {
 /* 모바일 반응형 */
 @media (max-width: 768px) {
     .bagua-portal {
-        width: 280px;
-        height: 280px;
+        width: 320px;
+        height: 320px;
     }
     
     .bagua-item {
-        width: 65px;
-        height: 65px;
+        width: 75px;
+        height: 75px;
     }
     
     .bagua-symbol {
-        font-size: 14px;
+        font-size: 16px;
     }
     
     .bagua-name {
-        font-size: 8px;
+        font-size: 9px;
     }
     
     .mecha-name {
-        font-size: 6px;
+        font-size: 7px;
     }
     
     .taiji-center {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
     }
     
     .taiji-symbol {
-        width: 60px;
-        height: 60px;
+        width: 75px;
+        height: 75px;
     }
     
     .title h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
     
     .info-panel {
@@ -437,25 +465,25 @@ body::before {
     }
     
     /* 모바일용 배치 조정 */
-    .bagua-item:nth-child(2) { top: -32px; }
+    .bagua-item:nth-child(2) { top: -37px; }
     .bagua-item:nth-child(3) { 
-        top: calc(50% - 50% * 0.707 - 32px); 
-        right: calc(50% - 50% * 0.707 - 32px); 
+        top: calc(50% - 50% * 0.707 - 37px); 
+        right: calc(50% - 50% * 0.707 - 37px); 
     }
-    .bagua-item:nth-child(4) { right: -32px; }
+    .bagua-item:nth-child(4) { right: -37px; }
     .bagua-item:nth-child(5) { 
-        bottom: calc(50% - 50% * 0.707 - 32px); 
-        right: calc(50% - 50% * 0.707 - 32px); 
+        bottom: calc(50% - 50% * 0.707 - 37px); 
+        right: calc(50% - 50% * 0.707 - 37px); 
     }
-    .bagua-item:nth-child(6) { bottom: -32px; }
+    .bagua-item:nth-child(6) { bottom: -37px; }
     .bagua-item:nth-child(7) { 
-        bottom: calc(50% - 50% * 0.707 - 32px); 
-        left: calc(50% - 50% * 0.707 - 32px); 
+        bottom: calc(50% - 50% * 0.707 - 37px); 
+        left: calc(50% - 50% * 0.707 - 37px); 
     }
-    .bagua-item:nth-child(8) { left: -32px; }
+    .bagua-item:nth-child(8) { left: -37px; }
     .bagua-item:nth-child(9) { 
-        top: calc(50% - 50% * 0.707 - 32px); 
-        left: calc(50% - 50% * 0.707 - 32px); 
+        top: calc(50% - 50% * 0.707 - 37px); 
+        left: calc(50% - 50% * 0.707 - 37px); 
     }
 }
 
